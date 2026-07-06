@@ -97,6 +97,7 @@ export type RuntimePattern = Partial<WorkflowShapeCandidate> & {
   edgeCount?: number;
   task_type_mix?: Record<string, number>;
   taskTypeMix?: Record<string, number>;
+  tokens?: string[];
 };
 
 export type RuntimeTextIndexEntry = {
@@ -107,4 +108,12 @@ export type RuntimeTextIndexEntry = {
   description?: string;
   text?: string;
   tokens?: string[];
+  depth?: number;
+  edgeCount?: number;
+  exampleCount?: number;
+  exampleIndices?: number[];
+  layerShape?: number[];
+  nodeCount?: number;
+  source?: string;
+  taskTypeMix?: Record<string, number>;
 };

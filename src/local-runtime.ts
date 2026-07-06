@@ -45,14 +45,13 @@ export class WtdAdvisor {
       }
     }
 
-    const patterns = normalizePatterns(
-      await readJson<RuntimePattern[] | { patterns: RuntimePattern[] }>(join(options.bundlePath, 'patterns.json')),
-    );
+    const patternRecords = await readJson<RuntimePattern[] | { patterns: RuntimePattern[] }>(join(options.bundlePath, 'patterns.json'));
     const textEntries = normalizeTextIndex(
       await readOptionalJson<RuntimeTextIndexEntry[] | { entries?: RuntimeTextIndexEntry[]; documents?: RuntimeTextIndexEntry[] }>(
         join(options.bundlePath, 'text-index.json'),
       ),
     );
+    const patterns = normalizePatterns(patternRecords, textEntries);
 
     return new WtdAdvisor({
       bundlePath: options.bundlePath,
@@ -105,21 +104,28 @@ export class WtdAdvisor {
   }
 }
 
-function normalizePatterns(input: RuntimePattern[] | { patterns: RuntimePattern[] }): WorkflowShapeCandidate[] {
+function normalizePatterns(
+  input: RuntimePattern[] | { patterns: RuntimePattern[] },
+  textEntries: RuntimeTextIndexEntry[],
+): WorkflowShapeCandidate[] {
   const patterns = Array.isArray(input) ? input : input.patterns;
-  return patterns.map((pattern) => ({
+  const textById = new Map(textEntries.map((entry) => [entryPatternId(entry), entry]));
+  return patterns.map((pattern) => {
+    const textEntry = textById.get(pattern.id) ?? textById.get(pattern.name);
+    return {
     id: pattern.id,
     name: pattern.name,
-    description: pattern.description ?? '',
+    description: pattern.description ?? textEntry?.description ?? '',
     score: pattern.score ?? 0,
     distance: pattern.distance,
-    layerShape: pattern.layerShape ?? pattern.layer_shape ?? [],
-    nodeCount: pattern.nodeCount ?? pattern.node_count ?? 0,
-    edgeCount: pattern.edgeCount ?? pattern.edge_count ?? 0,
-    taskTypeMix: pattern.taskTypeMix ?? pattern.task_type_mix ?? {},
+    layerShape: pattern.layerShape ?? pattern.layer_shape ?? textEntry?.layerShape ?? [],
+    nodeCount: pattern.nodeCount ?? pattern.node_count ?? textEntry?.nodeCount ?? 0,
+    edgeCount: pattern.edgeCount ?? pattern.edge_count ?? textEntry?.edgeCount ?? 0,
+    taskTypeMix: pattern.taskTypeMix ?? pattern.task_type_mix ?? textEntry?.taskTypeMix ?? {},
     examples: pattern.examples ?? [],
-    guidance: pattern.guidance ?? '',
-  }));
+    guidance: pattern.guidance ?? textEntryGuidance(textEntry),
+  };
+});
 }
 
 function normalizeTextIndex(
@@ -160,6 +166,18 @@ function entryPatternId(entry: RuntimeTextIndexEntry): string | undefined {
 
 function entryText(entry: RuntimeTextIndexEntry): string {
   return [entry.name, entry.description, entry.text, ...(entry.tokens ?? [])].filter(Boolean).join(' ');
+}
+
+function textEntryGuidance(entry: RuntimeTextIndexEntry | undefined): string {
+  if (!entry) {
+    return '';
+  }
+  const details = [
+    entry.source ? `source: ${entry.source}` : null,
+    entry.exampleCount !== undefined ? `${entry.exampleCount} examples` : null,
+    entry.depth !== undefined ? `depth ${entry.depth}` : null,
+  ].filter(Boolean).join(', ');
+  return details ? `Use this shape when its topology fits the draft workflow (${details}).` : '';
 }
 
 async function readJson<T>(path: string): Promise<T> {

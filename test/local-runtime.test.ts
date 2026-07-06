@@ -43,6 +43,36 @@ test('uses draft DAG text as retrieval input', async () => {
   expect(candidates[0]?.name).toBe('branch-fix-verify-merge');
 });
 
+test('loads published WTD schema with descriptions from text index', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'ttasks-wtd-published-'));
+  tempDirs.push(dir);
+
+  await writeFile(join(dir, 'manifest.json'), JSON.stringify({ artifactId: 'wtd-mixed-v1' }));
+  await writeFile(join(dir, 'patterns.json'), JSON.stringify([
+    { id: 'n8n-small', name: 'n8n small', tokens: ['dataset', 'ingest', 'eval'] },
+  ]));
+  await writeFile(join(dir, 'text-index.json'), JSON.stringify([
+    {
+      id: 'n8n-small',
+      name: 'n8n small',
+      description: 'A compact n8n workflow shape for dataset ingest.',
+      nodeCount: 12,
+      edgeCount: 6,
+      taskTypeMix: {},
+      source: 'n8n',
+      exampleCount: 42,
+      depth: 3,
+    },
+  ]));
+
+  const advisor = await WtdAdvisor.load({ bundlePath: dir });
+  const [candidate] = advisor.retrieve({ query: 'dataset ingest eval', k: 1 });
+
+  expect(candidate?.description).toBe('A compact n8n workflow shape for dataset ingest.');
+  expect(candidate?.nodeCount).toBe(12);
+  expect(candidate?.guidance).toContain('42 examples');
+});
+
 test('rejects empty retrieval requests', async () => {
   const dir = await makeBundle();
 
