@@ -3,6 +3,19 @@ export type WtdModelLocator = {
   revision: string;
 };
 
+export type DownloadWtdRuntimeOptions = {
+  repo?: string;
+  revision?: string;
+  outDir: string;
+};
+
+export type DownloadedWtdRuntime = {
+  bundlePath: string;
+  repo: string;
+  revision: string;
+  files: string[];
+};
+
 export type WtdAdvisorOptions = {
   bundlePath: string;
   verifyChecksums?: boolean;

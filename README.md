@@ -17,19 +17,19 @@ pnpm add github:ianphil/ttasks-wtd#v0.1.0
 
 Use it with a pinned WTD runtime bundle, such as `ianphil/wtd-mixed-v1@v0.4.0`.
 
-```bash
-hf download ianphil/wtd-mixed-v1 \
-  --revision v0.4.0 \
-  --local-dir ./models/wtd-mixed-v1
-```
-
 ## Usage
 
 ```ts
-import { WtdAdvisor } from '@ianphil/ttasks-wtd';
+import { downloadWtdRuntime, WtdAdvisor } from '@ianphil/ttasks-wtd';
+
+const runtime = await downloadWtdRuntime({
+  repo: 'ianphil/wtd-mixed-v1',
+  revision: 'v0.4.0',
+  outDir: './models/wtd-mixed-v1',
+});
 
 const advisor = await WtdAdvisor.load({
-  bundlePath: './models/wtd-mixed-v1',
+  bundlePath: runtime.bundlePath,
 });
 
 const candidates = advisor.retrieve({
@@ -57,6 +57,7 @@ const candidates = advisor.retrieve({
 ## Scope
 
 - Loads local WTD runtime bundle metadata.
+- Downloads pinned Hugging Face runtime revisions.
 - Verifies `checksums.json` when present.
 - Provides dependency-light text fallback retrieval.
 - Defines the ttasks draft-DAG JSON contract for WTD queries.
