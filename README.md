@@ -2,9 +2,10 @@
 
 WTD workflow-shape retrieval companion for [`@ianphil/ttasks-ts`](https://github.com/ianphil/ttasks-ts).
 
-This package lets ttasks consumers load a published WTD runtime bundle, retrieve
-workflow-shape candidates from intent text or a draft ttasks DAG, and feed the
-structured guidance back into graph authoring.
+This package lets ttasks consumers download and load a published WTD runtime
+bundle, run structural `encoder.onnx` inference over a draft ttasks DAG, retrieve
+workflow-shape candidates, and feed the structured guidance back into graph
+authoring.
 
 WTD recommends shapes; ttasks still owns executable `TaskGraph` construction and
 execution.
@@ -32,16 +33,19 @@ const advisor = await WtdAdvisor.load({
   bundlePath: runtime.bundlePath,
 });
 
-const candidates = advisor.retrieve({
+const result = await advisor.retrieve({
   query: 'dataset ingestion eval publish candidate',
   k: 5,
 });
+
+console.log(result.candidates);
 ```
 
-Draft-DAG retrieval uses the shared ttasks JSON shape:
+Draft-DAG retrieval uses the full structural runtime when the bundle includes
+`encoder.onnx`, `latents.f16`, and `text-projection.f32`:
 
 ```ts
-const candidates = advisor.retrieve({
+const result = await advisor.retrieve({
   draftDag: {
     id: 'draft',
     title: 'fix branches verify merge',
@@ -59,11 +63,13 @@ const candidates = advisor.retrieve({
 - Loads local WTD runtime bundle metadata.
 - Downloads pinned Hugging Face runtime revisions.
 - Verifies `checksums.json` when present.
+- Runs structural draft-DAG retrieval through `encoder.onnx`.
 - Provides dependency-light text fallback retrieval.
 - Defines the ttasks draft-DAG JSON contract for WTD queries.
 
-Structural ONNX retrieval belongs behind this package API once the native runtime
-dependency boundary is settled.
+Text queries use metadata retrieval. Draft-DAG queries use ONNX structural
+retrieval when structural files are present, and fall back to metadata retrieval
+only when the caller allows `mode: 'auto'`.
 
 ## Development
 

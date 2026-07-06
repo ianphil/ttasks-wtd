@@ -19,12 +19,30 @@ export type DownloadedWtdRuntime = {
 export type WtdAdvisorOptions = {
   bundlePath: string;
   verifyChecksums?: boolean;
+  enableStructuralRuntime?: boolean;
 };
 
 export type WtdRetrieveRequest = {
   query?: string;
-  draftDag?: TtasksGraphJson;
+  draftDag?: TtasksGraphJson | CompactDraftDagJson;
   k?: number;
+  mode?: 'auto' | 'structural' | 'metadata';
+  preferredSource?: string;
+  preferredSize?: string;
+};
+
+export type WtdRetrieveResult = {
+  queryKind: 'text' | 'draftDag';
+  querySummary: string;
+  candidates: WorkflowShapeCandidate[];
+  fallback?: WtdRetrieveFallback;
+};
+
+export type WtdRetrieveFallback = {
+  used: boolean;
+  from: 'draftDagStructuralRetrieval';
+  to: 'metadataFallbackRetrieval';
+  reason: string;
 };
 
 export type WorkflowShapeExample = {
@@ -35,17 +53,23 @@ export type WorkflowShapeExample = {
 };
 
 export type WorkflowShapeCandidate = {
+  id?: string;
   name: string;
   description: string;
   score: number;
   distance?: number;
+  source?: string;
+  sizeBucket?: string;
   layerShape: number[];
   nodeCount: number;
   edgeCount: number;
+  depth?: number;
   taskTypeMix: Record<string, number>;
-  examples: WorkflowShapeExample[];
+  examples: WorkflowShapeExample[] | number[];
   guidance: string;
-  id?: string;
+  risks?: string[];
+  retrievalScores?: Record<string, number>;
+  rankReason?: string;
 };
 
 export type TtasksGraphJson = {
@@ -57,6 +81,11 @@ export type TtasksGraphJson = {
   optionalTasks: string[];
 };
 
+export type CompactDraftDagJson = {
+  title?: string;
+  steps: string[];
+};
+
 export type TtasksGraphNodeJson = {
   id: string;
   title: string;
@@ -65,13 +94,6 @@ export type TtasksGraphNodeJson = {
   payload: unknown;
   timeout: number | null;
   metadata: Record<string, unknown>;
-};
-
-export type RuntimeManifest = {
-  artifact_id?: string;
-  artifactId?: string;
-  version?: string;
-  capabilities?: Record<string, unknown>;
 };
 
 export type RuntimeRelease = {
@@ -98,6 +120,10 @@ export type RuntimePattern = Partial<WorkflowShapeCandidate> & {
   task_type_mix?: Record<string, number>;
   taskTypeMix?: Record<string, number>;
   tokens?: string[];
+  source?: string;
+  sizeBucket?: string;
+  depth?: number;
+  exampleIndices?: number[];
 };
 
 export type RuntimeTextIndexEntry = {
@@ -116,4 +142,43 @@ export type RuntimeTextIndexEntry = {
   nodeCount?: number;
   source?: string;
   taskTypeMix?: Record<string, number>;
+  sizeBucket?: string;
+};
+
+export type RuntimeFiles = {
+  checksums?: string;
+  draftDagGold?: string;
+  encoder?: string;
+  encoderVectors?: string;
+  goldQueries?: string;
+  labels?: string;
+  latents?: string;
+  modelCard?: string;
+  patterns?: string;
+  rankerConfig?: string;
+  rankerSchema?: string;
+  release?: string;
+  textIndex?: string;
+  textProjection?: string;
+  topK?: string;
+};
+
+export type StructuralEncoderManifest = {
+  expectedFiles?: {
+    encoder?: { path?: string };
+    latents?: { path?: string; shape?: number[] };
+    textProjection?: { path?: string; shape?: number[] };
+  };
+  status?: string;
+};
+
+export type RuntimeManifest = {
+  artifact_id?: string;
+  artifactId?: string;
+  version?: string;
+  mode?: string;
+  capabilities?: Record<string, unknown>;
+  files?: RuntimeFiles;
+  structuralEncoder?: StructuralEncoderManifest;
+  provenance?: Record<string, unknown>;
 };

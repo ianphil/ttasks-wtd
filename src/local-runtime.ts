@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { verifyBundleChecksums, type ChecksumsFile } from './checksums.js';
+import { createStructuralRuntime, normalizeDraftDag, type StructuralRuntime } from './structural.js';
 import type {
   RuntimeManifest,
   RuntimePattern,
@@ -10,6 +11,7 @@ import type {
   WorkflowShapeCandidate,
   WtdAdvisorOptions,
   WtdRetrieveRequest,
+  WtdRetrieveResult,
 } from './types.js';
 
 export class WtdAdvisor {
@@ -18,20 +20,26 @@ export class WtdAdvisor {
   readonly release: RuntimeRelease | null;
 
   #patterns: WorkflowShapeCandidate[];
+  #patternRecords: RuntimePattern[];
   #textEntries: RuntimeTextIndexEntry[];
+  #structural: StructuralRuntime | null;
 
   private constructor(args: {
     bundlePath: string;
     manifest: RuntimeManifest;
     release: RuntimeRelease | null;
     patterns: WorkflowShapeCandidate[];
+    patternRecords: RuntimePattern[];
     textEntries: RuntimeTextIndexEntry[];
+    structural: StructuralRuntime | null;
   }) {
     this.bundlePath = args.bundlePath;
     this.manifest = args.manifest;
     this.release = args.release;
     this.#patterns = args.patterns;
+    this.#patternRecords = args.patternRecords;
     this.#textEntries = args.textEntries;
+    this.#structural = args.structural;
   }
 
   static async load(options: WtdAdvisorOptions): Promise<WtdAdvisor> {
@@ -45,25 +53,53 @@ export class WtdAdvisor {
       }
     }
 
-    const patternRecords = await readJson<RuntimePattern[] | { patterns: RuntimePattern[] }>(join(options.bundlePath, 'patterns.json'));
+    const patternRecordsInput = await readJson<RuntimePattern[] | { patterns: RuntimePattern[] }>(join(options.bundlePath, 'patterns.json'));
+    const patternRecords = Array.isArray(patternRecordsInput) ? patternRecordsInput : patternRecordsInput.patterns;
     const textEntries = normalizeTextIndex(
       await readOptionalJson<RuntimeTextIndexEntry[] | { entries?: RuntimeTextIndexEntry[]; documents?: RuntimeTextIndexEntry[] }>(
         join(options.bundlePath, 'text-index.json'),
       ),
     );
     const patterns = normalizePatterns(patternRecords, textEntries);
+    const structural = options.enableStructuralRuntime === false
+      ? null
+      : await createStructuralRuntime({
+        bundlePath: options.bundlePath,
+        manifest,
+        patternRecords,
+        textEntries,
+        candidates: patterns,
+      });
 
     return new WtdAdvisor({
       bundlePath: options.bundlePath,
       manifest,
       release,
       patterns,
+      patternRecords,
       textEntries,
+      structural,
     });
   }
 
-  retrieve(request: WtdRetrieveRequest): WorkflowShapeCandidate[] {
+  async retrieve(request: WtdRetrieveRequest): Promise<WtdRetrieveResult> {
     const k = request.k ?? 5;
+    const queryKind = request.draftDag ? 'draftDag' : 'text';
+    if (request.draftDag && request.mode !== 'metadata') {
+      if (this.#structural) {
+        const candidates = await this.#structural.retrieve(request.draftDag, k);
+        return {
+          queryKind,
+          querySummary: normalizeDraftDag(request.draftDag).title,
+          candidates,
+          fallback: { used: false, from: 'draftDagStructuralRetrieval', to: 'metadataFallbackRetrieval', reason: '' },
+        };
+      }
+      if (request.mode === 'structural') {
+        throw new Error('WTD structural runtime is unavailable for this bundle.');
+      }
+    }
+
     const queryText = buildQueryText(request);
     if (!queryText) {
       throw new Error('WTD retrieval requires query text or a draft DAG.');
@@ -77,7 +113,19 @@ export class WtdAdvisor {
       .slice(0, k)
       .map(({ pattern, score }) => ({ ...pattern, score }));
 
-    return ranked;
+    return {
+      queryKind,
+      querySummary: queryText,
+      candidates: ranked,
+      fallback: request.draftDag
+        ? {
+          used: true,
+          from: 'draftDagStructuralRetrieval',
+          to: 'metadataFallbackRetrieval',
+          reason: 'structural runtime unavailable',
+        }
+        : undefined,
+    };
   }
 
   #scorePattern(pattern: WorkflowShapeCandidate, queryTokens: Set<string>): number {
@@ -88,7 +136,7 @@ export class WtdAdvisor {
       pattern.name,
       pattern.description,
       pattern.guidance,
-      ...pattern.examples.flatMap((example) => [example.title, example.goal, example.source]),
+      ...pattern.examples.flatMap((example) => typeof example === 'number' ? [] : [example.title, example.goal, example.source]),
       ...entryTexts,
     ].filter(Boolean).join(' ');
     const patternTokens = tokenize(haystack);
@@ -105,10 +153,9 @@ export class WtdAdvisor {
 }
 
 function normalizePatterns(
-  input: RuntimePattern[] | { patterns: RuntimePattern[] },
+  patterns: RuntimePattern[],
   textEntries: RuntimeTextIndexEntry[],
 ): WorkflowShapeCandidate[] {
-  const patterns = Array.isArray(input) ? input : input.patterns;
   const textById = new Map(textEntries.map((entry) => [entryPatternId(entry), entry]));
   return patterns.map((pattern) => {
     const textEntry = textById.get(pattern.id) ?? textById.get(pattern.name);
@@ -118,11 +165,14 @@ function normalizePatterns(
     description: pattern.description ?? textEntry?.description ?? '',
     score: pattern.score ?? 0,
     distance: pattern.distance,
+    source: pattern.source ?? textEntry?.source,
+    sizeBucket: pattern.sizeBucket ?? textEntry?.sizeBucket,
     layerShape: pattern.layerShape ?? pattern.layer_shape ?? textEntry?.layerShape ?? [],
     nodeCount: pattern.nodeCount ?? pattern.node_count ?? textEntry?.nodeCount ?? 0,
     edgeCount: pattern.edgeCount ?? pattern.edge_count ?? textEntry?.edgeCount ?? 0,
+    depth: pattern.depth ?? textEntry?.depth,
     taskTypeMix: pattern.taskTypeMix ?? pattern.task_type_mix ?? textEntry?.taskTypeMix ?? {},
-    examples: pattern.examples ?? [],
+    examples: pattern.examples ?? pattern.exampleIndices ?? textEntry?.exampleIndices ?? [],
     guidance: pattern.guidance ?? textEntryGuidance(textEntry),
   };
 });
@@ -143,8 +193,9 @@ function normalizeTextIndex(
 function buildQueryText(request: WtdRetrieveRequest): string {
   const parts = [request.query];
   if (request.draftDag) {
-    parts.push(request.draftDag.title);
-    for (const node of request.draftDag.nodes) {
+    const draftDag = normalizeDraftDag(request.draftDag);
+    parts.push(draftDag.title);
+    for (const node of draftDag.nodes) {
       parts.push(node.title, node.description, node.type);
     }
   }

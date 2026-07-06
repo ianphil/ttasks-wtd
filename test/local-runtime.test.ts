@@ -17,18 +17,18 @@ test('loads a metadata runtime bundle and ranks text matches', async () => {
   const dir = await makeBundle();
 
   const advisor = await WtdAdvisor.load({ bundlePath: dir });
-  const candidates = advisor.retrieve({ query: 'dataset ingestion eval publish candidate', k: 1 });
+  const result = await advisor.retrieve({ query: 'dataset ingestion eval publish candidate', k: 1 });
 
-  expect(candidates).toHaveLength(1);
-  expect(candidates[0]?.name).toBe('dataset-ingest-eval-publish');
-  expect(candidates[0]?.score).toBeGreaterThan(0);
+  expect(result.candidates).toHaveLength(1);
+  expect(result.candidates[0]?.name).toBe('dataset-ingest-eval-publish');
+  expect(result.candidates[0]?.score).toBeGreaterThan(0);
 });
 
 test('uses draft DAG text as retrieval input', async () => {
   const dir = await makeBundle();
 
   const advisor = await WtdAdvisor.load({ bundlePath: dir });
-  const candidates = advisor.retrieve({
+  const result = await advisor.retrieve({
     draftDag: {
       id: 'draft',
       title: 'branch fix verify merge',
@@ -40,7 +40,8 @@ test('uses draft DAG text as retrieval input', async () => {
     k: 1,
   });
 
-  expect(candidates[0]?.name).toBe('branch-fix-verify-merge');
+  expect(result.candidates[0]?.name).toBe('branch-fix-verify-merge');
+  expect(result.fallback?.used).toBe(true);
 });
 
 test('loads published WTD schema with descriptions from text index', async () => {
@@ -66,7 +67,8 @@ test('loads published WTD schema with descriptions from text index', async () =>
   ]));
 
   const advisor = await WtdAdvisor.load({ bundlePath: dir });
-  const [candidate] = advisor.retrieve({ query: 'dataset ingest eval', k: 1 });
+  const result = await advisor.retrieve({ query: 'dataset ingest eval', k: 1 });
+  const [candidate] = result.candidates;
 
   expect(candidate?.description).toBe('A compact n8n workflow shape for dataset ingest.');
   expect(candidate?.nodeCount).toBe(12);
@@ -78,7 +80,7 @@ test('rejects empty retrieval requests', async () => {
 
   const advisor = await WtdAdvisor.load({ bundlePath: dir });
 
-  expect(() => advisor.retrieve({})).toThrow('WTD retrieval requires query text or a draft DAG.');
+  await expect(advisor.retrieve({})).rejects.toThrow('WTD retrieval requires query text or a draft DAG.');
 });
 
 async function makeBundle(): Promise<string> {
