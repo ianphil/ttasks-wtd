@@ -1,0 +1,92 @@
+{
+  "id": "classify_act-draft",
+  "title": "classify act",
+  "nodes": [
+    {
+      "id": "c21696e0-6ce3-4379-8943-e3386f746d5b",
+      "title": "classify_act_classifier_0",
+      "type": "agent",
+      "description": "classifier step in classify_act",
+      "payload": "do classifier 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    },
+    {
+      "id": "7b9c2c81-828c-47dc-adc6-ffaa98b82b41",
+      "title": "classify_act_r_1",
+      "type": "bash",
+      "description": "r step in classify_act",
+      "payload": "do r 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    },
+    {
+      "id": "7176e1f9-d378-4a45-a716-1c71d7da52b7",
+      "title": "classify_act_r_2",
+      "type": "bash",
+      "description": "r step in classify_act",
+      "payload": "do r 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    },
+    {
+      "id": "4e6d3a7d-21bd-44a4-9ab0-836a2df4464a",
+      "title": "classify_act_r_3",
+      "type": "agent",
+      "description": "r step in classify_act",
+      "payload": "do r 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    },
+    {
+      "id": "db7fe953-1f51-4dc6-909b-fb7e1d7657d9",
+      "title": "classify_act_r_4",
+      "type": "bash",
+      "description": "r step in classify_act",
+      "payload": "do r 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    },
+    {
+      "id": "7730fc46-5296-4087-80a7-0f21bc246768",
+      "title": "classify_act_r_5",
+      "type": "bash",
+      "description": "r step in classify_act",
+      "payload": "do r 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "classify_act"
+      }
+    }
+  ],
+  "deps": {
+    "c21696e0-6ce3-4379-8943-e3386f746d5b": [],
+    "7b9c2c81-828c-47dc-adc6-ffaa98b82b41": [
+      "c21696e0-6ce3-4379-8943-e3386f746d5b"
+    ],
+    "7176e1f9-d378-4a45-a716-1c71d7da52b7": [
+      "c21696e0-6ce3-4379-8943-e3386f746d5b"
+    ],
+    "4e6d3a7d-21bd-44a4-9ab0-836a2df4464a": [
+      "c21696e0-6ce3-4379-8943-e3386f746d5b"
+    ],
+    "db7fe953-1f51-4dc6-909b-fb7e1d7657d9": [
+      "c21696e0-6ce3-4379-8943-e3386f746d5b"
+    ],
+    "7730fc46-5296-4087-80a7-0f21bc246768": [
+      "c21696e0-6ce3-4379-8943-e3386f746d5b"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

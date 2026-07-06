@@ -1,0 +1,103 @@
+{
+  "id": "tournament-draft",
+  "title": "tournament",
+  "nodes": [
+    {
+      "id": "04a0ed97-0fef-42ad-9617-6016daaa2fa7",
+      "title": "tournament_candidate_1",
+      "type": "bash",
+      "description": "candidate step in tournament",
+      "payload": "do candidate 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "b5862777-c6eb-4686-962c-4b9228cb2df6",
+      "title": "tournament_candidate_2",
+      "type": "bash",
+      "description": "candidate step in tournament",
+      "payload": "do candidate 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "480b8826-d4fe-4470-ae31-707e039a983c",
+      "title": "tournament_candidate_3",
+      "type": "bash",
+      "description": "candidate step in tournament",
+      "payload": "do candidate 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "a79688d9-cb44-4570-a1f1-1439854db266",
+      "title": "tournament_candidate_4",
+      "type": "bash",
+      "description": "candidate step in tournament",
+      "payload": "do candidate 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "3a24b6ad-1fcd-4fe0-aba4-3ac228d8b755",
+      "title": "tournament_judge_5",
+      "type": "powershell",
+      "description": "judge step in tournament",
+      "payload": "do judge 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "6936bfef-3c3d-4fee-b7d0-1df385c13541",
+      "title": "tournament_judge_6",
+      "type": "prompt",
+      "description": "judge step in tournament",
+      "payload": "do judge 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    },
+    {
+      "id": "2fc06441-0886-4c8b-aadf-9f1d13d02d17",
+      "title": "tournament_judge_7",
+      "type": "prompt",
+      "description": "judge step in tournament",
+      "payload": "do judge 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "tournament"
+      }
+    }
+  ],
+  "deps": {
+    "04a0ed97-0fef-42ad-9617-6016daaa2fa7": [],
+    "b5862777-c6eb-4686-962c-4b9228cb2df6": [],
+    "480b8826-d4fe-4470-ae31-707e039a983c": [],
+    "a79688d9-cb44-4570-a1f1-1439854db266": [],
+    "3a24b6ad-1fcd-4fe0-aba4-3ac228d8b755": [
+      "04a0ed97-0fef-42ad-9617-6016daaa2fa7",
+      "b5862777-c6eb-4686-962c-4b9228cb2df6"
+    ],
+    "6936bfef-3c3d-4fee-b7d0-1df385c13541": [
+      "480b8826-d4fe-4470-ae31-707e039a983c",
+      "a79688d9-cb44-4570-a1f1-1439854db266"
+    ],
+    "2fc06441-0886-4c8b-aadf-9f1d13d02d17": [
+      "3a24b6ad-1fcd-4fe0-aba4-3ac228d8b755",
+      "6936bfef-3c3d-4fee-b7d0-1df385c13541"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

@@ -1,0 +1,115 @@
+{
+  "id": "c8_exploration-draft",
+  "title": "c8 exploration",
+  "nodes": [
+    {
+      "id": "718f69ca-dbce-492a-a9ca-6507a4de4fac",
+      "title": "c8_exploration_g_1",
+      "type": "bash",
+      "description": "g step in c8_exploration",
+      "payload": "do g 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "21cf1493-65d1-4b5e-af95-2ba2928d6dfb",
+      "title": "c8_exploration_g_2",
+      "type": "powershell",
+      "description": "g step in c8_exploration",
+      "payload": "do g 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "df4bb820-90d5-4189-8d8d-bc71820bb5d0",
+      "title": "c8_exploration_g_3",
+      "type": "bash",
+      "description": "g step in c8_exploration",
+      "payload": "do g 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "0fe99e10-29c7-499b-89ad-70074c9598fd",
+      "title": "c8_exploration_g_4",
+      "type": "bash",
+      "description": "g step in c8_exploration",
+      "payload": "do g 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "116fbf4d-469b-4933-b5dc-20b4b682575d",
+      "title": "c8_exploration_g_5",
+      "type": "bash",
+      "description": "g step in c8_exploration",
+      "payload": "do g 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "32ba52b0-9adb-4915-ac43-c9864cb05f80",
+      "title": "c8_exploration_g_6",
+      "type": "bash",
+      "description": "g step in c8_exploration",
+      "payload": "do g 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "bd8ce86e-357a-482a-8555-abf19dc4be2d",
+      "title": "c8_exploration_filter_7",
+      "type": "prompt",
+      "description": "filter step in c8_exploration",
+      "payload": "do filter 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    },
+    {
+      "id": "1e567273-4221-401f-9d29-6d680c505672",
+      "title": "c8_exploration_judge_8",
+      "type": "prompt",
+      "description": "judge step in c8_exploration",
+      "payload": "do judge 8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c8_exploration"
+      }
+    }
+  ],
+  "deps": {
+    "718f69ca-dbce-492a-a9ca-6507a4de4fac": [],
+    "21cf1493-65d1-4b5e-af95-2ba2928d6dfb": [],
+    "df4bb820-90d5-4189-8d8d-bc71820bb5d0": [],
+    "0fe99e10-29c7-499b-89ad-70074c9598fd": [],
+    "116fbf4d-469b-4933-b5dc-20b4b682575d": [],
+    "32ba52b0-9adb-4915-ac43-c9864cb05f80": [],
+    "bd8ce86e-357a-482a-8555-abf19dc4be2d": [
+      "718f69ca-dbce-492a-a9ca-6507a4de4fac",
+      "21cf1493-65d1-4b5e-af95-2ba2928d6dfb",
+      "df4bb820-90d5-4189-8d8d-bc71820bb5d0",
+      "0fe99e10-29c7-499b-89ad-70074c9598fd",
+      "116fbf4d-469b-4933-b5dc-20b4b682575d",
+      "32ba52b0-9adb-4915-ac43-c9864cb05f80"
+    ],
+    "1e567273-4221-401f-9d29-6d680c505672": [
+      "bd8ce86e-357a-482a-8555-abf19dc4be2d"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

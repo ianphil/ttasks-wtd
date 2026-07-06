@@ -1,0 +1,40 @@
+{
+  "id": "adversarial-draft",
+  "title": "adversarial",
+  "nodes": [
+    {
+      "id": "40ac7b06-11dd-400a-99ed-42a5bb6f2358",
+      "title": "adversarial_worker_1",
+      "type": "agent",
+      "description": "worker step in adversarial",
+      "payload": "do worker 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "adversarial"
+      }
+    },
+    {
+      "id": "3b762e81-59aa-4654-a523-6bcf1aefb496",
+      "title": "adversarial_verifier_2",
+      "type": "prompt",
+      "description": "verifier step in adversarial",
+      "payload": "do verifier 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "adversarial"
+      }
+    }
+  ],
+  "deps": {
+    "40ac7b06-11dd-400a-99ed-42a5bb6f2358": [],
+    "3b762e81-59aa-4654-a523-6bcf1aefb496": [
+      "40ac7b06-11dd-400a-99ed-42a5bb6f2358"
+    ]
+  },
+  "finallyTasks": [
+    "3b762e81-59aa-4654-a523-6bcf1aefb496"
+  ],
+  "optionalTasks": [
+    "3b762e81-59aa-4654-a523-6bcf1aefb496"
+  ]
+}

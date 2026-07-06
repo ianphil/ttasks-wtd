@@ -1,0 +1,114 @@
+{
+  "id": "loop_until_done-draft",
+  "title": "loop until done",
+  "nodes": [
+    {
+      "id": "9fae6d73-a670-48de-a19a-28c200f4514e",
+      "title": "loop_until_done_iter_1",
+      "type": "agent",
+      "description": "iter step in loop_until_done",
+      "payload": "do iter 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "2a976b08-0215-47b7-adfe-ed264dd408b0",
+      "title": "loop_until_done_check_2",
+      "type": "prompt",
+      "description": "check step in loop_until_done",
+      "payload": "do check 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "1bc5d17b-b1a6-495a-b47a-ab20ebacefff",
+      "title": "loop_until_done_iter_3",
+      "type": "agent",
+      "description": "iter step in loop_until_done",
+      "payload": "do iter 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "a2d0a4b2-e1e5-463b-8a36-10a39d121048",
+      "title": "loop_until_done_check_4",
+      "type": "prompt",
+      "description": "check step in loop_until_done",
+      "payload": "do check 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "fc4de8fd-f045-4f9f-8088-937652601fc7",
+      "title": "loop_until_done_iter_5",
+      "type": "bash",
+      "description": "iter step in loop_until_done",
+      "payload": "do iter 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "f48232fc-3190-472f-b8ac-12c7222db28d",
+      "title": "loop_until_done_check_6",
+      "type": "prompt",
+      "description": "check step in loop_until_done",
+      "payload": "do check 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    },
+    {
+      "id": "2b1f55dd-abad-4d11-8b41-6a554009ab6b",
+      "title": "loop_until_done_done_7",
+      "type": "prompt",
+      "description": "done step in loop_until_done",
+      "payload": "do done 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "loop_until_done"
+      }
+    }
+  ],
+  "deps": {
+    "9fae6d73-a670-48de-a19a-28c200f4514e": [],
+    "2a976b08-0215-47b7-adfe-ed264dd408b0": [
+      "9fae6d73-a670-48de-a19a-28c200f4514e"
+    ],
+    "1bc5d17b-b1a6-495a-b47a-ab20ebacefff": [
+      "2a976b08-0215-47b7-adfe-ed264dd408b0"
+    ],
+    "a2d0a4b2-e1e5-463b-8a36-10a39d121048": [
+      "1bc5d17b-b1a6-495a-b47a-ab20ebacefff"
+    ],
+    "fc4de8fd-f045-4f9f-8088-937652601fc7": [
+      "a2d0a4b2-e1e5-463b-8a36-10a39d121048"
+    ],
+    "f48232fc-3190-472f-b8ac-12c7222db28d": [
+      "fc4de8fd-f045-4f9f-8088-937652601fc7"
+    ],
+    "2b1f55dd-abad-4d11-8b41-6a554009ab6b": [
+      "f48232fc-3190-472f-b8ac-12c7222db28d"
+    ]
+  },
+  "finallyTasks": [
+    "2a976b08-0215-47b7-adfe-ed264dd408b0",
+    "a2d0a4b2-e1e5-463b-8a36-10a39d121048",
+    "f48232fc-3190-472f-b8ac-12c7222db28d"
+  ],
+  "optionalTasks": [
+    "2a976b08-0215-47b7-adfe-ed264dd408b0",
+    "a2d0a4b2-e1e5-463b-8a36-10a39d121048",
+    "f48232fc-3190-472f-b8ac-12c7222db28d"
+  ]
+}

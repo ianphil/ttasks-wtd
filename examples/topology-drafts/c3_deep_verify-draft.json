@@ -1,0 +1,192 @@
+{
+  "id": "c3_deep_verify-draft",
+  "title": "c3 deep verify",
+  "nodes": [
+    {
+      "id": "db435eb5-3af8-4298-985c-9804b425e8d3",
+      "title": "c3_deep_verify_extract_claims_0",
+      "type": "powershell",
+      "description": "extract_claims step in c3_deep_verify",
+      "payload": "do extract_claims 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "53b99fb7-39c7-4e0a-9bc5-5779e16c17e7",
+      "title": "c3_deep_verify_claim_1",
+      "type": "bash",
+      "description": "claim step in c3_deep_verify",
+      "payload": "do claim 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "09f5a514-bfe0-4325-ba39-6034f11022fb",
+      "title": "c3_deep_verify_claim_2",
+      "type": "bash",
+      "description": "claim step in c3_deep_verify",
+      "payload": "do claim 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "81e0b033-66e8-42b7-b90c-6598a49fca7f",
+      "title": "c3_deep_verify_claim_3",
+      "type": "powershell",
+      "description": "claim step in c3_deep_verify",
+      "payload": "do claim 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "5b38f50f-5a05-4f79-ab7f-65bb60ec364a",
+      "title": "c3_deep_verify_claim_4",
+      "type": "bash",
+      "description": "claim step in c3_deep_verify",
+      "payload": "do claim 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "c121937e-6579-4adf-a75c-0a55791a8e59",
+      "title": "c3_deep_verify_claim_5",
+      "type": "bash",
+      "description": "claim step in c3_deep_verify",
+      "payload": "do claim 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "9f395bfb-41aa-4688-aec4-a303743b726b",
+      "title": "c3_deep_verify_v_6",
+      "type": "prompt",
+      "description": "v step in c3_deep_verify",
+      "payload": "do v 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "db5800da-125c-4739-9530-052ac8df7f7e",
+      "title": "c3_deep_verify_v_7",
+      "type": "prompt",
+      "description": "v step in c3_deep_verify",
+      "payload": "do v 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "8f6c4594-83b9-4735-9b28-825f42b639c1",
+      "title": "c3_deep_verify_v_8",
+      "type": "powershell",
+      "description": "v step in c3_deep_verify",
+      "payload": "do v 8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "6af98f8e-a312-4832-8478-da8006c4e96d",
+      "title": "c3_deep_verify_v_9",
+      "type": "prompt",
+      "description": "v step in c3_deep_verify",
+      "payload": "do v 9",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "9ded54b5-b9ad-4ea4-9328-55f20c4e56d5",
+      "title": "c3_deep_verify_v_10",
+      "type": "agent",
+      "description": "v step in c3_deep_verify",
+      "payload": "do v 10",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    },
+    {
+      "id": "07dff380-cf00-43fe-8a37-076fb12b631f",
+      "title": "c3_deep_verify_meta_verify_11",
+      "type": "prompt",
+      "description": "meta_verify step in c3_deep_verify",
+      "payload": "do meta_verify 11",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c3_deep_verify"
+      }
+    }
+  ],
+  "deps": {
+    "db435eb5-3af8-4298-985c-9804b425e8d3": [],
+    "53b99fb7-39c7-4e0a-9bc5-5779e16c17e7": [
+      "db435eb5-3af8-4298-985c-9804b425e8d3"
+    ],
+    "09f5a514-bfe0-4325-ba39-6034f11022fb": [
+      "db435eb5-3af8-4298-985c-9804b425e8d3"
+    ],
+    "81e0b033-66e8-42b7-b90c-6598a49fca7f": [
+      "db435eb5-3af8-4298-985c-9804b425e8d3"
+    ],
+    "5b38f50f-5a05-4f79-ab7f-65bb60ec364a": [
+      "db435eb5-3af8-4298-985c-9804b425e8d3"
+    ],
+    "c121937e-6579-4adf-a75c-0a55791a8e59": [
+      "db435eb5-3af8-4298-985c-9804b425e8d3"
+    ],
+    "9f395bfb-41aa-4688-aec4-a303743b726b": [
+      "53b99fb7-39c7-4e0a-9bc5-5779e16c17e7"
+    ],
+    "db5800da-125c-4739-9530-052ac8df7f7e": [
+      "09f5a514-bfe0-4325-ba39-6034f11022fb"
+    ],
+    "8f6c4594-83b9-4735-9b28-825f42b639c1": [
+      "81e0b033-66e8-42b7-b90c-6598a49fca7f"
+    ],
+    "6af98f8e-a312-4832-8478-da8006c4e96d": [
+      "5b38f50f-5a05-4f79-ab7f-65bb60ec364a"
+    ],
+    "9ded54b5-b9ad-4ea4-9328-55f20c4e56d5": [
+      "c121937e-6579-4adf-a75c-0a55791a8e59"
+    ],
+    "07dff380-cf00-43fe-8a37-076fb12b631f": [
+      "9f395bfb-41aa-4688-aec4-a303743b726b",
+      "db5800da-125c-4739-9530-052ac8df7f7e",
+      "8f6c4594-83b9-4735-9b28-825f42b639c1",
+      "6af98f8e-a312-4832-8478-da8006c4e96d",
+      "9ded54b5-b9ad-4ea4-9328-55f20c4e56d5"
+    ]
+  },
+  "finallyTasks": [
+    "9f395bfb-41aa-4688-aec4-a303743b726b",
+    "db5800da-125c-4739-9530-052ac8df7f7e",
+    "8f6c4594-83b9-4735-9b28-825f42b639c1",
+    "6af98f8e-a312-4832-8478-da8006c4e96d",
+    "9ded54b5-b9ad-4ea4-9328-55f20c4e56d5"
+  ],
+  "optionalTasks": [
+    "9f395bfb-41aa-4688-aec4-a303743b726b",
+    "db5800da-125c-4739-9530-052ac8df7f7e",
+    "8f6c4594-83b9-4735-9b28-825f42b639c1",
+    "6af98f8e-a312-4832-8478-da8006c4e96d",
+    "9ded54b5-b9ad-4ea4-9328-55f20c4e56d5"
+  ]
+}

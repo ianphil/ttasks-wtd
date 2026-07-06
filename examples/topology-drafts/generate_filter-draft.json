@@ -1,0 +1,101 @@
+{
+  "id": "generate_filter-draft",
+  "title": "generate filter",
+  "nodes": [
+    {
+      "id": "61b205ca-008f-4201-9b37-83db4b94fc7f",
+      "title": "generate_filter_g_1",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "7232fa0b-ba92-4b5c-b0ee-86b6da56f11b",
+      "title": "generate_filter_g_2",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "f3da223e-cd72-4eb1-a36d-7fa50e4aaa35",
+      "title": "generate_filter_g_3",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "fddb26bc-bdd2-4622-8a3b-3f72b7503b13",
+      "title": "generate_filter_g_4",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "f93d6d6c-55bc-40ad-9f15-603bcde0a552",
+      "title": "generate_filter_g_5",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "11de6df0-4d80-4208-8593-75cc606c6b73",
+      "title": "generate_filter_g_6",
+      "type": "agent",
+      "description": "g step in generate_filter",
+      "payload": "do g 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    },
+    {
+      "id": "e6050989-dfc1-485f-86e0-954f170cb003",
+      "title": "generate_filter_filter_7",
+      "type": "bash",
+      "description": "filter step in generate_filter",
+      "payload": "do filter 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "generate_filter"
+      }
+    }
+  ],
+  "deps": {
+    "61b205ca-008f-4201-9b37-83db4b94fc7f": [],
+    "7232fa0b-ba92-4b5c-b0ee-86b6da56f11b": [],
+    "f3da223e-cd72-4eb1-a36d-7fa50e4aaa35": [],
+    "fddb26bc-bdd2-4622-8a3b-3f72b7503b13": [],
+    "f93d6d6c-55bc-40ad-9f15-603bcde0a552": [],
+    "11de6df0-4d80-4208-8593-75cc606c6b73": [],
+    "e6050989-dfc1-485f-86e0-954f170cb003": [
+      "61b205ca-008f-4201-9b37-83db4b94fc7f",
+      "7232fa0b-ba92-4b5c-b0ee-86b6da56f11b",
+      "f3da223e-cd72-4eb1-a36d-7fa50e4aaa35",
+      "fddb26bc-bdd2-4622-8a3b-3f72b7503b13",
+      "f93d6d6c-55bc-40ad-9f15-603bcde0a552",
+      "11de6df0-4d80-4208-8593-75cc606c6b73"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

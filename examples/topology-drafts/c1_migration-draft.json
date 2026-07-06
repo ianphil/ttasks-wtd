@@ -1,0 +1,435 @@
+{
+  "id": "c1_migration-draft",
+  "title": "c1 migration",
+  "nodes": [
+    {
+      "id": "aed43e8b-ae25-4757-8cb2-ede0c865dc08",
+      "title": "c1_migration_decompose_0",
+      "type": "agent",
+      "description": "decompose step in c1_migration",
+      "payload": "do decompose 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "dee90b7d-a5b7-40b8-9668-8cfc04f89a79",
+      "title": "c1_migration_fix_1_1",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 1_1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "372daa55-b595-405c-8cad-77fe04fb807f",
+      "title": "c1_migration_verify_1_5",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 1_5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "1fcb3219-facb-4049-8045-0998663703d8",
+      "title": "c1_migration_fix_1_2",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 1_2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "8344d5e9-95ea-4941-8fd2-de11e9aa14ad",
+      "title": "c1_migration_verify_1_6",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 1_6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "fe99afe6-7da4-4d6d-aa64-75bf2ccca81a",
+      "title": "c1_migration_fix_1_3",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 1_3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "87a75668-d4c1-46f7-9c01-d14eea1e9191",
+      "title": "c1_migration_verify_1_7",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 1_7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "da794578-5fa7-4494-9366-414f8cb592a6",
+      "title": "c1_migration_fix_1_4",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 1_4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "5205c13b-9a1c-49a5-8726-275ae86bccf6",
+      "title": "c1_migration_verify_1_8",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 1_8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "4b94405d-15fe-44bc-9c40-af45fda485ae",
+      "title": "c1_migration_merge_1_merge",
+      "type": "prompt",
+      "description": "merge step in c1_migration",
+      "payload": "do merge 1_merge",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "93450c37-5f96-45ea-88fd-205e34c25e36",
+      "title": "c1_migration_fix_2_1",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 2_1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "54fda745-14cb-4b65-816f-ff32d5e45a13",
+      "title": "c1_migration_verify_2_5",
+      "type": "powershell",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 2_5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "7895716e-5c8e-4ca2-95b0-666ff98c8b90",
+      "title": "c1_migration_fix_2_2",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 2_2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "23449fba-9399-4fe6-a181-508d811c57bc",
+      "title": "c1_migration_verify_2_6",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 2_6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "c5d0287b-9ca9-4fe8-9ae5-08812b3aff42",
+      "title": "c1_migration_fix_2_3",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 2_3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "0eb42160-c12e-4dea-828d-7c1cbc7435a5",
+      "title": "c1_migration_verify_2_7",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 2_7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "aeca5155-303c-4f67-955f-6db03daefe97",
+      "title": "c1_migration_fix_2_4",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 2_4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "9f8ff5c1-6568-4601-b657-3d7a39686110",
+      "title": "c1_migration_verify_2_8",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 2_8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "6477a7c7-562e-43a2-9521-23cce0b1eed0",
+      "title": "c1_migration_merge_2_merge",
+      "type": "prompt",
+      "description": "merge step in c1_migration",
+      "payload": "do merge 2_merge",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "5148837e-2a67-4f83-a000-17854c5785a3",
+      "title": "c1_migration_fix_3_1",
+      "type": "prompt",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 3_1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "9a0d852e-19a1-4161-9464-7933e00e0c64",
+      "title": "c1_migration_verify_3_5",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 3_5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "feb27b0a-c0f3-43dd-afec-358a33be831d",
+      "title": "c1_migration_fix_3_2",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 3_2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "a087fbb8-c7c7-4d5a-a8ba-a70bb59bdb5d",
+      "title": "c1_migration_verify_3_6",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 3_6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "55a6cf12-0b98-48e3-a0c0-07875ef1b847",
+      "title": "c1_migration_fix_3_3",
+      "type": "agent",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 3_3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "bd02e4c9-9fa6-49a3-a633-9f1984973fe8",
+      "title": "c1_migration_verify_3_7",
+      "type": "prompt",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 3_7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "f00bedb5-1965-4387-a0ba-17b3da90eda6",
+      "title": "c1_migration_fix_3_4",
+      "type": "powershell",
+      "description": "fix step in c1_migration",
+      "payload": "do fix 3_4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "3db01d10-0f1e-403b-bbe2-b2865f259706",
+      "title": "c1_migration_verify_3_8",
+      "type": "agent",
+      "description": "verify step in c1_migration",
+      "payload": "do verify 3_8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    },
+    {
+      "id": "c69fe9e2-2300-42d4-b5fd-9084d2940346",
+      "title": "c1_migration_merge_3_merge",
+      "type": "prompt",
+      "description": "merge step in c1_migration",
+      "payload": "do merge 3_merge",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c1_migration"
+      }
+    }
+  ],
+  "deps": {
+    "aed43e8b-ae25-4757-8cb2-ede0c865dc08": [],
+    "dee90b7d-a5b7-40b8-9668-8cfc04f89a79": [
+      "aed43e8b-ae25-4757-8cb2-ede0c865dc08"
+    ],
+    "372daa55-b595-405c-8cad-77fe04fb807f": [
+      "dee90b7d-a5b7-40b8-9668-8cfc04f89a79"
+    ],
+    "1fcb3219-facb-4049-8045-0998663703d8": [
+      "aed43e8b-ae25-4757-8cb2-ede0c865dc08"
+    ],
+    "8344d5e9-95ea-4941-8fd2-de11e9aa14ad": [
+      "1fcb3219-facb-4049-8045-0998663703d8"
+    ],
+    "fe99afe6-7da4-4d6d-aa64-75bf2ccca81a": [
+      "aed43e8b-ae25-4757-8cb2-ede0c865dc08"
+    ],
+    "87a75668-d4c1-46f7-9c01-d14eea1e9191": [
+      "fe99afe6-7da4-4d6d-aa64-75bf2ccca81a"
+    ],
+    "da794578-5fa7-4494-9366-414f8cb592a6": [
+      "aed43e8b-ae25-4757-8cb2-ede0c865dc08"
+    ],
+    "5205c13b-9a1c-49a5-8726-275ae86bccf6": [
+      "da794578-5fa7-4494-9366-414f8cb592a6"
+    ],
+    "4b94405d-15fe-44bc-9c40-af45fda485ae": [
+      "372daa55-b595-405c-8cad-77fe04fb807f",
+      "8344d5e9-95ea-4941-8fd2-de11e9aa14ad",
+      "87a75668-d4c1-46f7-9c01-d14eea1e9191",
+      "5205c13b-9a1c-49a5-8726-275ae86bccf6"
+    ],
+    "93450c37-5f96-45ea-88fd-205e34c25e36": [
+      "4b94405d-15fe-44bc-9c40-af45fda485ae"
+    ],
+    "54fda745-14cb-4b65-816f-ff32d5e45a13": [
+      "93450c37-5f96-45ea-88fd-205e34c25e36"
+    ],
+    "7895716e-5c8e-4ca2-95b0-666ff98c8b90": [
+      "4b94405d-15fe-44bc-9c40-af45fda485ae"
+    ],
+    "23449fba-9399-4fe6-a181-508d811c57bc": [
+      "7895716e-5c8e-4ca2-95b0-666ff98c8b90"
+    ],
+    "c5d0287b-9ca9-4fe8-9ae5-08812b3aff42": [
+      "4b94405d-15fe-44bc-9c40-af45fda485ae"
+    ],
+    "0eb42160-c12e-4dea-828d-7c1cbc7435a5": [
+      "c5d0287b-9ca9-4fe8-9ae5-08812b3aff42"
+    ],
+    "aeca5155-303c-4f67-955f-6db03daefe97": [
+      "4b94405d-15fe-44bc-9c40-af45fda485ae"
+    ],
+    "9f8ff5c1-6568-4601-b657-3d7a39686110": [
+      "aeca5155-303c-4f67-955f-6db03daefe97"
+    ],
+    "6477a7c7-562e-43a2-9521-23cce0b1eed0": [
+      "54fda745-14cb-4b65-816f-ff32d5e45a13",
+      "23449fba-9399-4fe6-a181-508d811c57bc",
+      "0eb42160-c12e-4dea-828d-7c1cbc7435a5",
+      "9f8ff5c1-6568-4601-b657-3d7a39686110"
+    ],
+    "5148837e-2a67-4f83-a000-17854c5785a3": [
+      "6477a7c7-562e-43a2-9521-23cce0b1eed0"
+    ],
+    "9a0d852e-19a1-4161-9464-7933e00e0c64": [
+      "5148837e-2a67-4f83-a000-17854c5785a3"
+    ],
+    "feb27b0a-c0f3-43dd-afec-358a33be831d": [
+      "6477a7c7-562e-43a2-9521-23cce0b1eed0"
+    ],
+    "a087fbb8-c7c7-4d5a-a8ba-a70bb59bdb5d": [
+      "feb27b0a-c0f3-43dd-afec-358a33be831d"
+    ],
+    "55a6cf12-0b98-48e3-a0c0-07875ef1b847": [
+      "6477a7c7-562e-43a2-9521-23cce0b1eed0"
+    ],
+    "bd02e4c9-9fa6-49a3-a633-9f1984973fe8": [
+      "55a6cf12-0b98-48e3-a0c0-07875ef1b847"
+    ],
+    "f00bedb5-1965-4387-a0ba-17b3da90eda6": [
+      "6477a7c7-562e-43a2-9521-23cce0b1eed0"
+    ],
+    "3db01d10-0f1e-403b-bbe2-b2865f259706": [
+      "f00bedb5-1965-4387-a0ba-17b3da90eda6"
+    ],
+    "c69fe9e2-2300-42d4-b5fd-9084d2940346": [
+      "9a0d852e-19a1-4161-9464-7933e00e0c64",
+      "a087fbb8-c7c7-4d5a-a8ba-a70bb59bdb5d",
+      "bd02e4c9-9fa6-49a3-a633-9f1984973fe8",
+      "3db01d10-0f1e-403b-bbe2-b2865f259706"
+    ]
+  },
+  "finallyTasks": [
+    "372daa55-b595-405c-8cad-77fe04fb807f",
+    "8344d5e9-95ea-4941-8fd2-de11e9aa14ad",
+    "87a75668-d4c1-46f7-9c01-d14eea1e9191",
+    "5205c13b-9a1c-49a5-8726-275ae86bccf6",
+    "54fda745-14cb-4b65-816f-ff32d5e45a13",
+    "23449fba-9399-4fe6-a181-508d811c57bc",
+    "0eb42160-c12e-4dea-828d-7c1cbc7435a5",
+    "9f8ff5c1-6568-4601-b657-3d7a39686110",
+    "9a0d852e-19a1-4161-9464-7933e00e0c64",
+    "a087fbb8-c7c7-4d5a-a8ba-a70bb59bdb5d",
+    "bd02e4c9-9fa6-49a3-a633-9f1984973fe8",
+    "3db01d10-0f1e-403b-bbe2-b2865f259706"
+  ],
+  "optionalTasks": [
+    "372daa55-b595-405c-8cad-77fe04fb807f",
+    "8344d5e9-95ea-4941-8fd2-de11e9aa14ad",
+    "87a75668-d4c1-46f7-9c01-d14eea1e9191",
+    "5205c13b-9a1c-49a5-8726-275ae86bccf6",
+    "54fda745-14cb-4b65-816f-ff32d5e45a13",
+    "23449fba-9399-4fe6-a181-508d811c57bc",
+    "0eb42160-c12e-4dea-828d-7c1cbc7435a5",
+    "9f8ff5c1-6568-4601-b657-3d7a39686110",
+    "9a0d852e-19a1-4161-9464-7933e00e0c64",
+    "a087fbb8-c7c7-4d5a-a8ba-a70bb59bdb5d",
+    "bd02e4c9-9fa6-49a3-a633-9f1984973fe8",
+    "3db01d10-0f1e-403b-bbe2-b2865f259706"
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "id": "c7_triage-draft",
+  "title": "c7 triage",
+  "nodes": [
+    {
+      "id": "3496a4a4-9f95-4372-bbd0-e94d94086825",
+      "title": "c7_triage_incoming_0",
+      "type": "agent",
+      "description": "incoming step in c7_triage",
+      "payload": "do incoming 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "1b1fa060-4fec-425f-aa33-37e6f342b135",
+      "title": "c7_triage_classify_1",
+      "type": "bash",
+      "description": "classify step in c7_triage",
+      "payload": "do classify 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "77f34cfa-d471-4ddc-ac50-f9e5cfe45c7c",
+      "title": "c7_triage_dup_2",
+      "type": "bash",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "55376ef2-e28a-41e3-9969-85ab05bf9901",
+      "title": "c7_triage_dup_3",
+      "type": "bash",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "b0524a8d-a88e-41b4-a7ee-9dc0e62ba660",
+      "title": "c7_triage_dup_4",
+      "type": "agent",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "d81821dd-69aa-4825-8532-ec80fea6a5af",
+      "title": "c7_triage_dup_5",
+      "type": "bash",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "31ac4ad2-1d8a-4ca0-96f1-d1fd030c6e13",
+      "title": "c7_triage_dup_6",
+      "type": "bash",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "3c37abdb-2168-45ca-ba0d-e45f24cc9ae2",
+      "title": "c7_triage_dup_7",
+      "type": "powershell",
+      "description": "dup step in c7_triage",
+      "payload": "do dup 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "ec9ead28-3b11-41e5-a3da-46567aa253c8",
+      "title": "c7_triage_fix_8",
+      "type": "agent",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "d59fb992-5136-4607-bf8a-9b0dd8e5d73d",
+      "title": "c7_triage_fix_9",
+      "type": "powershell",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 9",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "d09ad142-5ec6-47c7-bb15-0ca3931e7d3e",
+      "title": "c7_triage_fix_10",
+      "type": "prompt",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 10",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "20317faa-b1cb-4294-9f11-33ad210ea8e2",
+      "title": "c7_triage_fix_11",
+      "type": "prompt",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 11",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "0df4509b-0318-4b99-be3d-bce08b4ce7bf",
+      "title": "c7_triage_fix_12",
+      "type": "prompt",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 12",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "b246b99f-1af1-40ce-a7a7-6bbe29c1d8f8",
+      "title": "c7_triage_fix_13",
+      "type": "prompt",
+      "description": "fix step in c7_triage",
+      "payload": "do fix 13",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    },
+    {
+      "id": "5d00833a-8579-4130-884e-e3f1a095d845",
+      "title": "c7_triage_report_13",
+      "type": "bash",
+      "description": "report step in c7_triage",
+      "payload": "do report 13",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c7_triage"
+      }
+    }
+  ],
+  "deps": {
+    "3496a4a4-9f95-4372-bbd0-e94d94086825": [],
+    "1b1fa060-4fec-425f-aa33-37e6f342b135": [
+      "3496a4a4-9f95-4372-bbd0-e94d94086825"
+    ],
+    "77f34cfa-d471-4ddc-ac50-f9e5cfe45c7c": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "55376ef2-e28a-41e3-9969-85ab05bf9901": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "b0524a8d-a88e-41b4-a7ee-9dc0e62ba660": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "d81821dd-69aa-4825-8532-ec80fea6a5af": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "31ac4ad2-1d8a-4ca0-96f1-d1fd030c6e13": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "3c37abdb-2168-45ca-ba0d-e45f24cc9ae2": [
+      "1b1fa060-4fec-425f-aa33-37e6f342b135"
+    ],
+    "ec9ead28-3b11-41e5-a3da-46567aa253c8": [
+      "77f34cfa-d471-4ddc-ac50-f9e5cfe45c7c"
+    ],
+    "d59fb992-5136-4607-bf8a-9b0dd8e5d73d": [
+      "55376ef2-e28a-41e3-9969-85ab05bf9901"
+    ],
+    "d09ad142-5ec6-47c7-bb15-0ca3931e7d3e": [
+      "b0524a8d-a88e-41b4-a7ee-9dc0e62ba660"
+    ],
+    "20317faa-b1cb-4294-9f11-33ad210ea8e2": [
+      "d81821dd-69aa-4825-8532-ec80fea6a5af"
+    ],
+    "0df4509b-0318-4b99-be3d-bce08b4ce7bf": [
+      "31ac4ad2-1d8a-4ca0-96f1-d1fd030c6e13"
+    ],
+    "b246b99f-1af1-40ce-a7a7-6bbe29c1d8f8": [
+      "3c37abdb-2168-45ca-ba0d-e45f24cc9ae2"
+    ],
+    "5d00833a-8579-4130-884e-e3f1a095d845": [
+      "ec9ead28-3b11-41e5-a3da-46567aa253c8",
+      "d59fb992-5136-4607-bf8a-9b0dd8e5d73d",
+      "d09ad142-5ec6-47c7-bb15-0ca3931e7d3e",
+      "20317faa-b1cb-4294-9f11-33ad210ea8e2",
+      "0df4509b-0318-4b99-be3d-bce08b4ce7bf",
+      "b246b99f-1af1-40ce-a7a7-6bbe29c1d8f8"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

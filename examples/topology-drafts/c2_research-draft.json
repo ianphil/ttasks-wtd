@@ -1,0 +1,572 @@
+{
+  "id": "c2_research-draft",
+  "title": "c2 research",
+  "nodes": [
+    {
+      "id": "e3601dd4-b6a3-4e10-926e-48a5577d6099",
+      "title": "c2_research_query_0",
+      "type": "bash",
+      "description": "query step in c2_research",
+      "payload": "do query 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "ace57570-a1c7-447a-bc88-4d5e3c3ef4ac",
+      "title": "c2_research_s_1_a",
+      "type": "prompt",
+      "description": "s step in c2_research",
+      "payload": "do s 1_a",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "a6d0a7c9-b471-444d-a681-55460c97c1fe",
+      "title": "c2_research_claim_1_1_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 1_1_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "b6809197-5f89-4830-8fa7-03cbcd8b4ec1",
+      "title": "c2_research_verify_1_1_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 1_1_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "e91f5590-e3e2-4548-98cd-720b06670688",
+      "title": "c2_research_claim_1_2_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 1_2_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "a2ed011a-0704-402c-bfb1-669ae91f64fa",
+      "title": "c2_research_verify_1_2_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 1_2_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "735fe089-1168-4c58-91f8-6e2378689474",
+      "title": "c2_research_claim_1_3_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 1_3_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "db8b2961-1633-441f-8b67-c56de5bcad0f",
+      "title": "c2_research_verify_1_3_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 1_3_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "16c984bd-259e-41b7-91d6-efe351aac395",
+      "title": "c2_research_s_2_a",
+      "type": "agent",
+      "description": "s step in c2_research",
+      "payload": "do s 2_a",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "d49d25cd-156f-4b32-9859-ab0d97d30278",
+      "title": "c2_research_claim_2_1_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 2_1_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "44af2312-07ba-42c7-a1ee-2f93be1d390a",
+      "title": "c2_research_verify_2_1_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 2_1_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "5548eec3-21e3-42f8-8bd4-7d2b8e21064c",
+      "title": "c2_research_claim_2_2_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 2_2_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "08a07885-4714-4a15-baf1-014f1fa0e221",
+      "title": "c2_research_verify_2_2_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 2_2_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "631fb74a-edb0-45df-939c-9d10f8402a4b",
+      "title": "c2_research_claim_2_3_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 2_3_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "25d78d9a-4822-45b8-8d29-a58b166d0c03",
+      "title": "c2_research_verify_2_3_c",
+      "type": "bash",
+      "description": "verify step in c2_research",
+      "payload": "do verify 2_3_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "87797496-62b9-4752-831e-dcc22dcf16a5",
+      "title": "c2_research_s_3_a",
+      "type": "agent",
+      "description": "s step in c2_research",
+      "payload": "do s 3_a",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "18fd4f53-b845-4476-9351-6e46db70ba1c",
+      "title": "c2_research_claim_3_1_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 3_1_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "f62051fa-4955-45d1-b724-1220c22c5f59",
+      "title": "c2_research_verify_3_1_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 3_1_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "0a97d7ec-0c54-4726-8f57-8285f893525f",
+      "title": "c2_research_claim_3_2_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 3_2_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "391ce84d-32da-45d0-a948-810ba45c161d",
+      "title": "c2_research_verify_3_2_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 3_2_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "67e9930a-aeb9-4011-aa2b-9df3933d5a73",
+      "title": "c2_research_claim_3_3_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 3_3_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "26311167-8fc6-4e9c-918b-53eb10711b53",
+      "title": "c2_research_verify_3_3_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 3_3_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "8640347f-8bbb-44db-a60d-2e13fb10d39e",
+      "title": "c2_research_s_4_a",
+      "type": "agent",
+      "description": "s step in c2_research",
+      "payload": "do s 4_a",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "654194b0-3bef-4e5b-a9a9-19216c1ea289",
+      "title": "c2_research_claim_4_1_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 4_1_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "8e4e47aa-ee09-472a-bf49-6e26fac91da2",
+      "title": "c2_research_verify_4_1_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 4_1_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "03db04f7-3aa5-48ec-82d3-1ba90a3ca64b",
+      "title": "c2_research_claim_4_2_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 4_2_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "30072b88-0028-4de8-9a8e-418168a7ff7c",
+      "title": "c2_research_verify_4_2_c",
+      "type": "powershell",
+      "description": "verify step in c2_research",
+      "payload": "do verify 4_2_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "7fd61960-faf6-4915-9841-77e807b88ccd",
+      "title": "c2_research_claim_4_3_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 4_3_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "0071343e-fd92-47e2-b9e8-0af01f147bd0",
+      "title": "c2_research_verify_4_3_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 4_3_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "c615ade5-46d4-48ce-88c7-4e647c448c0d",
+      "title": "c2_research_s_5_a",
+      "type": "agent",
+      "description": "s step in c2_research",
+      "payload": "do s 5_a",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "931dacec-6e1c-4875-aa39-ff670b194a03",
+      "title": "c2_research_claim_5_1_b",
+      "type": "prompt",
+      "description": "claim step in c2_research",
+      "payload": "do claim 5_1_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "38b4153d-53a4-4a07-80bc-274ed1586f97",
+      "title": "c2_research_verify_5_1_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 5_1_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "2845e77f-04da-4c7c-9139-07dc6e823a4c",
+      "title": "c2_research_claim_5_2_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 5_2_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "797b9418-4a50-434b-af7c-f88ceb8bc724",
+      "title": "c2_research_verify_5_2_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 5_2_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "e2f71ead-5851-4131-899f-7d89edb01067",
+      "title": "c2_research_claim_5_3_b",
+      "type": "bash",
+      "description": "claim step in c2_research",
+      "payload": "do claim 5_3_b",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "cd97f2d1-514b-4490-b83e-f704dbaee1b3",
+      "title": "c2_research_verify_5_3_c",
+      "type": "prompt",
+      "description": "verify step in c2_research",
+      "payload": "do verify 5_3_c",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    },
+    {
+      "id": "a515948c-7abf-4e64-bfb0-d1b4f7a26745",
+      "title": "c2_research_synthesize_-1",
+      "type": "agent",
+      "description": "synthesize step in c2_research",
+      "payload": "do synthesize -1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c2_research"
+      }
+    }
+  ],
+  "deps": {
+    "e3601dd4-b6a3-4e10-926e-48a5577d6099": [],
+    "ace57570-a1c7-447a-bc88-4d5e3c3ef4ac": [
+      "e3601dd4-b6a3-4e10-926e-48a5577d6099"
+    ],
+    "a6d0a7c9-b471-444d-a681-55460c97c1fe": [
+      "ace57570-a1c7-447a-bc88-4d5e3c3ef4ac"
+    ],
+    "b6809197-5f89-4830-8fa7-03cbcd8b4ec1": [
+      "a6d0a7c9-b471-444d-a681-55460c97c1fe"
+    ],
+    "e91f5590-e3e2-4548-98cd-720b06670688": [
+      "ace57570-a1c7-447a-bc88-4d5e3c3ef4ac"
+    ],
+    "a2ed011a-0704-402c-bfb1-669ae91f64fa": [
+      "e91f5590-e3e2-4548-98cd-720b06670688"
+    ],
+    "735fe089-1168-4c58-91f8-6e2378689474": [
+      "ace57570-a1c7-447a-bc88-4d5e3c3ef4ac"
+    ],
+    "db8b2961-1633-441f-8b67-c56de5bcad0f": [
+      "735fe089-1168-4c58-91f8-6e2378689474"
+    ],
+    "16c984bd-259e-41b7-91d6-efe351aac395": [
+      "e3601dd4-b6a3-4e10-926e-48a5577d6099"
+    ],
+    "d49d25cd-156f-4b32-9859-ab0d97d30278": [
+      "16c984bd-259e-41b7-91d6-efe351aac395"
+    ],
+    "44af2312-07ba-42c7-a1ee-2f93be1d390a": [
+      "d49d25cd-156f-4b32-9859-ab0d97d30278"
+    ],
+    "5548eec3-21e3-42f8-8bd4-7d2b8e21064c": [
+      "16c984bd-259e-41b7-91d6-efe351aac395"
+    ],
+    "08a07885-4714-4a15-baf1-014f1fa0e221": [
+      "5548eec3-21e3-42f8-8bd4-7d2b8e21064c"
+    ],
+    "631fb74a-edb0-45df-939c-9d10f8402a4b": [
+      "16c984bd-259e-41b7-91d6-efe351aac395"
+    ],
+    "25d78d9a-4822-45b8-8d29-a58b166d0c03": [
+      "631fb74a-edb0-45df-939c-9d10f8402a4b"
+    ],
+    "87797496-62b9-4752-831e-dcc22dcf16a5": [
+      "e3601dd4-b6a3-4e10-926e-48a5577d6099"
+    ],
+    "18fd4f53-b845-4476-9351-6e46db70ba1c": [
+      "87797496-62b9-4752-831e-dcc22dcf16a5"
+    ],
+    "f62051fa-4955-45d1-b724-1220c22c5f59": [
+      "18fd4f53-b845-4476-9351-6e46db70ba1c"
+    ],
+    "0a97d7ec-0c54-4726-8f57-8285f893525f": [
+      "87797496-62b9-4752-831e-dcc22dcf16a5"
+    ],
+    "391ce84d-32da-45d0-a948-810ba45c161d": [
+      "0a97d7ec-0c54-4726-8f57-8285f893525f"
+    ],
+    "67e9930a-aeb9-4011-aa2b-9df3933d5a73": [
+      "87797496-62b9-4752-831e-dcc22dcf16a5"
+    ],
+    "26311167-8fc6-4e9c-918b-53eb10711b53": [
+      "67e9930a-aeb9-4011-aa2b-9df3933d5a73"
+    ],
+    "8640347f-8bbb-44db-a60d-2e13fb10d39e": [
+      "e3601dd4-b6a3-4e10-926e-48a5577d6099"
+    ],
+    "654194b0-3bef-4e5b-a9a9-19216c1ea289": [
+      "8640347f-8bbb-44db-a60d-2e13fb10d39e"
+    ],
+    "8e4e47aa-ee09-472a-bf49-6e26fac91da2": [
+      "654194b0-3bef-4e5b-a9a9-19216c1ea289"
+    ],
+    "03db04f7-3aa5-48ec-82d3-1ba90a3ca64b": [
+      "8640347f-8bbb-44db-a60d-2e13fb10d39e"
+    ],
+    "30072b88-0028-4de8-9a8e-418168a7ff7c": [
+      "03db04f7-3aa5-48ec-82d3-1ba90a3ca64b"
+    ],
+    "7fd61960-faf6-4915-9841-77e807b88ccd": [
+      "8640347f-8bbb-44db-a60d-2e13fb10d39e"
+    ],
+    "0071343e-fd92-47e2-b9e8-0af01f147bd0": [
+      "7fd61960-faf6-4915-9841-77e807b88ccd"
+    ],
+    "c615ade5-46d4-48ce-88c7-4e647c448c0d": [
+      "e3601dd4-b6a3-4e10-926e-48a5577d6099"
+    ],
+    "931dacec-6e1c-4875-aa39-ff670b194a03": [
+      "c615ade5-46d4-48ce-88c7-4e647c448c0d"
+    ],
+    "38b4153d-53a4-4a07-80bc-274ed1586f97": [
+      "931dacec-6e1c-4875-aa39-ff670b194a03"
+    ],
+    "2845e77f-04da-4c7c-9139-07dc6e823a4c": [
+      "c615ade5-46d4-48ce-88c7-4e647c448c0d"
+    ],
+    "797b9418-4a50-434b-af7c-f88ceb8bc724": [
+      "2845e77f-04da-4c7c-9139-07dc6e823a4c"
+    ],
+    "e2f71ead-5851-4131-899f-7d89edb01067": [
+      "c615ade5-46d4-48ce-88c7-4e647c448c0d"
+    ],
+    "cd97f2d1-514b-4490-b83e-f704dbaee1b3": [
+      "e2f71ead-5851-4131-899f-7d89edb01067"
+    ],
+    "a515948c-7abf-4e64-bfb0-d1b4f7a26745": [
+      "b6809197-5f89-4830-8fa7-03cbcd8b4ec1",
+      "a2ed011a-0704-402c-bfb1-669ae91f64fa",
+      "db8b2961-1633-441f-8b67-c56de5bcad0f",
+      "44af2312-07ba-42c7-a1ee-2f93be1d390a",
+      "08a07885-4714-4a15-baf1-014f1fa0e221",
+      "25d78d9a-4822-45b8-8d29-a58b166d0c03",
+      "f62051fa-4955-45d1-b724-1220c22c5f59",
+      "391ce84d-32da-45d0-a948-810ba45c161d",
+      "26311167-8fc6-4e9c-918b-53eb10711b53",
+      "8e4e47aa-ee09-472a-bf49-6e26fac91da2",
+      "30072b88-0028-4de8-9a8e-418168a7ff7c",
+      "0071343e-fd92-47e2-b9e8-0af01f147bd0",
+      "38b4153d-53a4-4a07-80bc-274ed1586f97",
+      "797b9418-4a50-434b-af7c-f88ceb8bc724",
+      "cd97f2d1-514b-4490-b83e-f704dbaee1b3"
+    ]
+  },
+  "finallyTasks": [
+    "b6809197-5f89-4830-8fa7-03cbcd8b4ec1",
+    "a2ed011a-0704-402c-bfb1-669ae91f64fa",
+    "db8b2961-1633-441f-8b67-c56de5bcad0f",
+    "44af2312-07ba-42c7-a1ee-2f93be1d390a",
+    "08a07885-4714-4a15-baf1-014f1fa0e221",
+    "25d78d9a-4822-45b8-8d29-a58b166d0c03",
+    "f62051fa-4955-45d1-b724-1220c22c5f59",
+    "391ce84d-32da-45d0-a948-810ba45c161d",
+    "26311167-8fc6-4e9c-918b-53eb10711b53",
+    "8e4e47aa-ee09-472a-bf49-6e26fac91da2",
+    "30072b88-0028-4de8-9a8e-418168a7ff7c",
+    "0071343e-fd92-47e2-b9e8-0af01f147bd0",
+    "38b4153d-53a4-4a07-80bc-274ed1586f97",
+    "797b9418-4a50-434b-af7c-f88ceb8bc724",
+    "cd97f2d1-514b-4490-b83e-f704dbaee1b3"
+  ],
+  "optionalTasks": [
+    "b6809197-5f89-4830-8fa7-03cbcd8b4ec1",
+    "a2ed011a-0704-402c-bfb1-669ae91f64fa",
+    "db8b2961-1633-441f-8b67-c56de5bcad0f",
+    "44af2312-07ba-42c7-a1ee-2f93be1d390a",
+    "08a07885-4714-4a15-baf1-014f1fa0e221",
+    "25d78d9a-4822-45b8-8d29-a58b166d0c03",
+    "f62051fa-4955-45d1-b724-1220c22c5f59",
+    "391ce84d-32da-45d0-a948-810ba45c161d",
+    "26311167-8fc6-4e9c-918b-53eb10711b53",
+    "8e4e47aa-ee09-472a-bf49-6e26fac91da2",
+    "30072b88-0028-4de8-9a8e-418168a7ff7c",
+    "0071343e-fd92-47e2-b9e8-0af01f147bd0",
+    "38b4153d-53a4-4a07-80bc-274ed1586f97",
+    "797b9418-4a50-434b-af7c-f88ceb8bc724",
+    "cd97f2d1-514b-4490-b83e-f704dbaee1b3"
+  ]
+}

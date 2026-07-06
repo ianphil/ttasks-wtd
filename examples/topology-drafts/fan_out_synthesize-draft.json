@@ -1,0 +1,65 @@
+{
+  "id": "fan_out_synthesize-draft",
+  "title": "fan out synthesize",
+  "nodes": [
+    {
+      "id": "a7765195-82df-41ee-871a-621f20facca1",
+      "title": "fan_out_synthesize_root_0",
+      "type": "bash",
+      "description": "root step in fan_out_synthesize",
+      "payload": "do root 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "fan_out_synthesize"
+      }
+    },
+    {
+      "id": "8a3ef516-beff-4aed-a057-dfe9c48e0f1e",
+      "title": "fan_out_synthesize_a_1",
+      "type": "prompt",
+      "description": "a step in fan_out_synthesize",
+      "payload": "do a 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "fan_out_synthesize"
+      }
+    },
+    {
+      "id": "6385d40a-85c4-4bd8-9b9f-3c47b3e3e2cc",
+      "title": "fan_out_synthesize_a_2",
+      "type": "bash",
+      "description": "a step in fan_out_synthesize",
+      "payload": "do a 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "fan_out_synthesize"
+      }
+    },
+    {
+      "id": "799b8f59-a717-4863-b23c-ee3a34bc7d1e",
+      "title": "fan_out_synthesize_synthesize_3",
+      "type": "powershell",
+      "description": "synthesize step in fan_out_synthesize",
+      "payload": "do synthesize 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "fan_out_synthesize"
+      }
+    }
+  ],
+  "deps": {
+    "a7765195-82df-41ee-871a-621f20facca1": [],
+    "8a3ef516-beff-4aed-a057-dfe9c48e0f1e": [
+      "a7765195-82df-41ee-871a-621f20facca1"
+    ],
+    "6385d40a-85c4-4bd8-9b9f-3c47b3e3e2cc": [
+      "a7765195-82df-41ee-871a-621f20facca1"
+    ],
+    "799b8f59-a717-4863-b23c-ee3a34bc7d1e": [
+      "8a3ef516-beff-4aed-a057-dfe9c48e0f1e",
+      "6385d40a-85c4-4bd8-9b9f-3c47b3e3e2cc"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}

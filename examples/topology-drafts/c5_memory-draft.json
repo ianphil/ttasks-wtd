@@ -1,0 +1,140 @@
+{
+  "id": "c5_memory-draft",
+  "title": "c5 memory",
+  "nodes": [
+    {
+      "id": "97e97998-dcb1-4455-90da-4a630b482a19",
+      "title": "c5_memory_rule_set_0",
+      "type": "agent",
+      "description": "rule_set step in c5_memory",
+      "payload": "do rule_set 0",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "b159ef7d-155b-4be2-a48e-c3b0eeb15726",
+      "title": "c5_memory_r_1",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 1",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "6b2bf77b-866c-4bf7-ad45-538abfe08231",
+      "title": "c5_memory_r_2",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 2",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "9fe556ae-6c21-4476-8fd2-e52fd8e1b369",
+      "title": "c5_memory_r_3",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 3",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "2fdc3854-ce8f-498c-af9d-b171500bb1f9",
+      "title": "c5_memory_r_4",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 4",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "895b5629-8782-402b-97bc-43e1ff5b564c",
+      "title": "c5_memory_r_5",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 5",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "22ceb66f-82a4-4b43-b7b6-ce1bcf013f85",
+      "title": "c5_memory_r_6",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 6",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "709f68d4-796a-4ce3-8d40-4f3bf7fe1b17",
+      "title": "c5_memory_r_7",
+      "type": "prompt",
+      "description": "r step in c5_memory",
+      "payload": "do r 7",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    },
+    {
+      "id": "ad46ab75-2f85-429d-98ca-9ccebb32f3f3",
+      "title": "c5_memory_skeptic_8",
+      "type": "agent",
+      "description": "skeptic step in c5_memory",
+      "payload": "do skeptic 8",
+      "timeout": null,
+      "metadata": {
+        "sourcePattern": "c5_memory"
+      }
+    }
+  ],
+  "deps": {
+    "97e97998-dcb1-4455-90da-4a630b482a19": [],
+    "b159ef7d-155b-4be2-a48e-c3b0eeb15726": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "6b2bf77b-866c-4bf7-ad45-538abfe08231": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "9fe556ae-6c21-4476-8fd2-e52fd8e1b369": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "2fdc3854-ce8f-498c-af9d-b171500bb1f9": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "895b5629-8782-402b-97bc-43e1ff5b564c": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "22ceb66f-82a4-4b43-b7b6-ce1bcf013f85": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "709f68d4-796a-4ce3-8d40-4f3bf7fe1b17": [
+      "97e97998-dcb1-4455-90da-4a630b482a19"
+    ],
+    "ad46ab75-2f85-429d-98ca-9ccebb32f3f3": [
+      "b159ef7d-155b-4be2-a48e-c3b0eeb15726",
+      "6b2bf77b-866c-4bf7-ad45-538abfe08231",
+      "9fe556ae-6c21-4476-8fd2-e52fd8e1b369",
+      "2fdc3854-ce8f-498c-af9d-b171500bb1f9",
+      "895b5629-8782-402b-97bc-43e1ff5b564c",
+      "22ceb66f-82a4-4b43-b7b6-ce1bcf013f85",
+      "709f68d4-796a-4ce3-8d40-4f3bf7fe1b17"
+    ]
+  },
+  "finallyTasks": [],
+  "optionalTasks": []
+}
