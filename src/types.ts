@@ -20,6 +20,7 @@ export type WtdAdvisorOptions = {
   bundlePath: string;
   verifyChecksums?: boolean;
   enableStructuralRuntime?: boolean;
+  enableRanker?: boolean;
 };
 
 export type WtdRetrieveRequest = {
@@ -27,6 +28,7 @@ export type WtdRetrieveRequest = {
   draftDag?: TtasksGraphJson | CompactDraftDagJson;
   k?: number;
   mode?: 'auto' | 'structural' | 'metadata';
+  rank?: boolean;
   preferredSource?: string;
   preferredSize?: string;
 };
@@ -70,6 +72,23 @@ export type WorkflowShapeCandidate = {
   risks?: string[];
   retrievalScores?: Record<string, number>;
   rankReason?: string;
+};
+
+export type RankingWeights = {
+  retrieval_score: number;
+  node_compatibility: number;
+  edge_compatibility: number;
+  depth_compatibility: number;
+  fanout_compatibility: number;
+  source_preference: number;
+  size_preference: number;
+  confidence: number;
+  preferred_sources: string[];
+};
+
+export type RankerConfig = {
+  schema_version?: string;
+  weights?: Partial<RankingWeights>;
 };
 
 export type TtasksGraphJson = {
@@ -163,6 +182,14 @@ export type RuntimeFiles = {
   topK?: string;
 };
 
+export type HeuristicRankerManifest = {
+  expectedFiles?: {
+    config?: { path?: string };
+    schema?: { path?: string };
+  };
+  status?: string;
+};
+
 export type StructuralEncoderManifest = {
   expectedFiles?: {
     encoder?: { path?: string };
@@ -180,5 +207,6 @@ export type RuntimeManifest = {
   capabilities?: Record<string, unknown>;
   files?: RuntimeFiles;
   structuralEncoder?: StructuralEncoderManifest;
+  heuristicRanker?: HeuristicRankerManifest;
   provenance?: Record<string, unknown>;
 };

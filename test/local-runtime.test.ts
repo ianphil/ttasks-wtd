@@ -75,6 +75,34 @@ test('loads published WTD schema with descriptions from text index', async () =>
   expect(candidate?.guidance).toContain('42 examples');
 });
 
+test('loads ranker config and attaches ranking explanations', async () => {
+  const dir = await makeBundle();
+  await writeFile(join(dir, 'manifest.json'), JSON.stringify({
+    artifactId: 'wtd-mixed-v1',
+    files: { rankerConfig: 'ranker-config.json' },
+  }));
+  await writeFile(join(dir, 'ranker-config.json'), JSON.stringify({
+    schema_version: 'wtd_ranker_config_v1',
+    weights: {
+      retrieval_score: 0.45,
+      node_compatibility: 0.12,
+      edge_compatibility: 0.08,
+      depth_compatibility: 0.12,
+      fanout_compatibility: 0.08,
+      source_preference: 0.08,
+      size_preference: 0.02,
+      confidence: 0.05,
+      preferred_sources: ['airflow', 'n8n'],
+    },
+  }));
+
+  const advisor = await WtdAdvisor.load({ bundlePath: dir });
+  const result = await advisor.retrieve({ query: 'dataset ingestion eval publish candidate', k: 1 });
+
+  expect(result.candidates[0]?.rankReason).toContain('retrieval=');
+  expect(result.candidates[0]?.retrievalScores?.retrieval_score).toBeGreaterThan(0);
+});
+
 test('rejects empty retrieval requests', async () => {
   const dir = await makeBundle();
 

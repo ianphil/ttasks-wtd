@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { verifyBundleChecksums, type ChecksumsFile } from './checksums.js';
+import { loadHeuristicRanker, type HeuristicRanker } from './ranker.js';
 import { createStructuralRuntime, normalizeDraftDag, type StructuralRuntime } from './structural.js';
 import type {
   RuntimeManifest,
@@ -23,6 +24,7 @@ export class WtdAdvisor {
   #patternRecords: RuntimePattern[];
   #textEntries: RuntimeTextIndexEntry[];
   #structural: StructuralRuntime | null;
+  #ranker: HeuristicRanker | null;
 
   private constructor(args: {
     bundlePath: string;
@@ -32,6 +34,7 @@ export class WtdAdvisor {
     patternRecords: RuntimePattern[];
     textEntries: RuntimeTextIndexEntry[];
     structural: StructuralRuntime | null;
+    ranker: HeuristicRanker | null;
   }) {
     this.bundlePath = args.bundlePath;
     this.manifest = args.manifest;
@@ -40,6 +43,7 @@ export class WtdAdvisor {
     this.#patternRecords = args.patternRecords;
     this.#textEntries = args.textEntries;
     this.#structural = args.structural;
+    this.#ranker = args.ranker;
   }
 
   static async load(options: WtdAdvisorOptions): Promise<WtdAdvisor> {
@@ -70,6 +74,10 @@ export class WtdAdvisor {
         textEntries,
         candidates: patterns,
       });
+    const rankerPath = rankerConfigPath(options.bundlePath, manifest);
+    const ranker = options.enableRanker === false || !rankerPath
+      ? null
+      : await loadHeuristicRanker(rankerPath);
 
     return new WtdAdvisor({
       bundlePath: options.bundlePath,
@@ -79,6 +87,7 @@ export class WtdAdvisor {
       patternRecords,
       textEntries,
       structural,
+      ranker,
     });
   }
 
@@ -87,7 +96,8 @@ export class WtdAdvisor {
     const queryKind = request.draftDag ? 'draftDag' : 'text';
     if (request.draftDag && request.mode !== 'metadata') {
       if (this.#structural) {
-        const candidates = await this.#structural.retrieve(request.draftDag, k);
+        const poolSize = this.#shouldRank(request) ? Math.min(this.#patternRecords.length, Math.max(k * 4, k)) : k;
+        const candidates = this.#rankCandidates(await this.#structural.retrieve(request.draftDag, poolSize), request).slice(0, k);
         return {
           queryKind,
           querySummary: normalizeDraftDag(request.draftDag).title,
@@ -110,13 +120,13 @@ export class WtdAdvisor {
       .map((pattern) => ({ pattern, score: this.#scorePattern(pattern, queryTokens) }))
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score || a.pattern.name.localeCompare(b.pattern.name))
-      .slice(0, k)
       .map(({ pattern, score }) => ({ ...pattern, score }));
+    const candidates = this.#rankCandidates(ranked, request).slice(0, k);
 
     return {
       queryKind,
       querySummary: queryText,
-      candidates: ranked,
+      candidates,
       fallback: request.draftDag
         ? {
           used: true,
@@ -149,6 +159,17 @@ export class WtdAdvisor {
     }
 
     return queryTokens.size === 0 ? 0 : matches / queryTokens.size;
+  }
+
+  #rankCandidates(candidates: WorkflowShapeCandidate[], request: WtdRetrieveRequest): WorkflowShapeCandidate[] {
+    if (request.rank === false || this.#ranker === null) {
+      return candidates;
+    }
+    return this.#ranker.rank(candidates, request);
+  }
+
+  #shouldRank(request: WtdRetrieveRequest): boolean {
+    return request.rank !== false && this.#ranker !== null;
   }
 }
 
@@ -229,6 +250,11 @@ function textEntryGuidance(entry: RuntimeTextIndexEntry | undefined): string {
     entry.depth !== undefined ? `depth ${entry.depth}` : null,
   ].filter(Boolean).join(', ');
   return details ? `Use this shape when its topology fits the draft workflow (${details}).` : '';
+}
+
+function rankerConfigPath(bundlePath: string, manifest: RuntimeManifest): string | null {
+  const path = manifest.files?.rankerConfig ?? manifest.heuristicRanker?.expectedFiles?.config?.path;
+  return path ? join(bundlePath, path) : null;
 }
 
 async function readJson<T>(path: string): Promise<T> {

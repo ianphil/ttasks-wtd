@@ -79,6 +79,10 @@ export async function createStructuralRuntime(args: {
             id: pattern.id ?? base.id,
             score: 1 / (1 + distance),
             distance,
+            retrievalScores: {
+              ...(base.retrievalScores ?? {}),
+              structural: 1 / (1 + distance),
+            },
             source: pattern.source ?? base.source,
             sizeBucket: pattern.sizeBucket ?? base.sizeBucket ?? 'unknown',
             depth: pattern.depth ?? base.depth,

@@ -64,12 +64,14 @@ const result = await advisor.retrieve({
 - Downloads pinned Hugging Face runtime revisions.
 - Verifies `checksums.json` when present.
 - Runs structural draft-DAG retrieval through `encoder.onnx`.
+- Applies `ranker-config.json` heuristic reranking and feature explanations.
 - Provides dependency-light text fallback retrieval.
 - Defines the ttasks draft-DAG JSON contract for WTD queries.
 
 Text queries use metadata retrieval. Draft-DAG queries use ONNX structural
 retrieval when structural files are present, and fall back to metadata retrieval
-only when the caller allows `mode: 'auto'`.
+only when the caller allows `mode: 'auto'`. Set `rank: false` to inspect raw
+nearest-neighbor ONNX retrieval before heuristic reranking.
 
 ## Development
 
