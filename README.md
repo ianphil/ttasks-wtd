@@ -16,7 +16,10 @@ execution.
 pnpm add github:ianphil/ttasks-wtd#v0.1.0
 ```
 
-Use it with a pinned WTD runtime bundle, such as `ianphil/wtd-mixed-v1@v0.4.0`.
+Use it with a pinned WTD runtime bundle, such as `ianphil/wtd-mixed-v1@v0.4.1`.
+
+For the end-to-end `ttasks-ts` + WTD flow, see
+[`docs/quickstart.md`](./docs/quickstart.md).
 
 ## Usage
 
@@ -25,7 +28,7 @@ import { downloadWtdRuntime, WtdAdvisor } from '@ianphil/ttasks-wtd';
 
 const runtime = await downloadWtdRuntime({
   repo: 'ianphil/wtd-mixed-v1',
-  revision: 'v0.4.0',
+  revision: 'v0.4.1',
   outDir: './models/wtd-mixed-v1',
 });
 
