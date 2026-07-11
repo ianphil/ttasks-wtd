@@ -10,7 +10,7 @@ the concrete `TaskGraph`.
 
 ```bash
 pnpm add github:ianphil/ttasks-ts#v0.3.0
-pnpm add github:ianphil/ttasks-wtd#main
+pnpm add github:ianphil/ttasks-wtd#v0.1.0
 ```
 
 ## 2. Download and load the WTD runtime
@@ -19,8 +19,6 @@ pnpm add github:ianphil/ttasks-wtd#main
 import { downloadWtdRuntime, WtdAdvisor } from '@ianphil/ttasks-wtd';
 
 const runtime = await downloadWtdRuntime({
-  repo: 'ianphil/wtd-mixed-v1',
-  revision: 'v0.4.1',
   outDir: './models/wtd-mixed-v1',
 });
 
@@ -30,7 +28,9 @@ const advisor = await WtdAdvisor.load({
 ```
 
 `downloadWtdRuntime` uses Node's built-in `fetch`; it does not require the
-Hugging Face CLI or Python.
+Hugging Face CLI or Python. It defaults to the pinned
+`ianphil/wtd-mixed-v1@v0.4.3` bundle, verifies checksums before activation, and
+reuses a valid existing cache.
 
 ## 3. Describe the workflow you intend to build
 

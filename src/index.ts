@@ -1,4 +1,4 @@
-export { downloadWtdRuntime } from './huggingface.js';
+export { DEFAULT_WTD_MODEL, downloadWtdRuntime } from './huggingface.js';
 export { WtdAdvisor } from './local-runtime.js';
 export { createHeuristicRanker, loadHeuristicRanker } from './ranker.js';
 export type { HeuristicRanker } from './ranker.js';

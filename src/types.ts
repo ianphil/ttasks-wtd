@@ -7,6 +7,8 @@ export type DownloadWtdRuntimeOptions = {
   repo?: string;
   revision?: string;
   outDir: string;
+  verifyChecksums?: boolean;
+  reuseExisting?: boolean;
 };
 
 export type DownloadedWtdRuntime = {
@@ -14,6 +16,7 @@ export type DownloadedWtdRuntime = {
   repo: string;
   revision: string;
   files: string[];
+  cacheHit: boolean;
 };
 
 export type WtdAdvisorOptions = {
@@ -121,6 +124,7 @@ export type RuntimeRelease = {
   version?: string;
   hf_repo?: string;
   hfRepo?: string;
+  hfRevision?: string;
   revision?: string;
 };
 

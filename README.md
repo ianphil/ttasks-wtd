@@ -16,7 +16,7 @@ execution.
 pnpm add github:ianphil/ttasks-wtd#v0.1.0
 ```
 
-Use it with a pinned WTD runtime bundle, such as `ianphil/wtd-mixed-v1@v0.4.1`.
+Use it with the pinned WTD runtime bundle `ianphil/wtd-mixed-v1@v0.4.3`.
 
 For the end-to-end `ttasks-ts` + WTD flow, see
 [`docs/quickstart.md`](./docs/quickstart.md).
@@ -27,8 +27,6 @@ For the end-to-end `ttasks-ts` + WTD flow, see
 import { downloadWtdRuntime, WtdAdvisor } from '@ianphil/ttasks-wtd';
 
 const runtime = await downloadWtdRuntime({
-  repo: 'ianphil/wtd-mixed-v1',
-  revision: 'v0.4.1',
   outDir: './models/wtd-mixed-v1',
 });
 
@@ -65,7 +63,9 @@ const result = await advisor.retrieve({
 
 - Loads local WTD runtime bundle metadata.
 - Downloads pinned Hugging Face runtime revisions.
-- Verifies `checksums.json` when present.
+- Reuses verified runtime caches and replaces them only after a complete staged download.
+- Requires and verifies `checksums.json` for downloaded bundles.
+- Verifies local bundle checksums when present.
 - Runs structural draft-DAG retrieval through `encoder.onnx`.
 - Applies `ranker-config.json` heuristic reranking and feature explanations.
 - Provides dependency-light text fallback retrieval.

@@ -26,9 +26,11 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
     "dist",
     "docs",
@@ -50,7 +52,7 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@noble/hashes": "^2.2.0",
-    "onnxruntime-node": "^1.27.0"
+    "@noble/hashes": "2.2.0",
+    "onnxruntime-node": "1.27.0"
   }
 }
